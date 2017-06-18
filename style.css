@@ -184,9 +184,8 @@ form > a{
 
 
 .article {
-    /*display: none;*/
-    /*border: 2px dashed cyan;*/
-    padding: 20px;
+    position: relative;
+    padding: 20px 25px;
     /*background-color: rgba(240, 255, 240, .8);*/
     background-color: RGBA(0, 31, 63, .8);
     color: #ffffff;
@@ -197,8 +196,53 @@ form > a{
     -webkit-box-shadow: 0px 0px 10px -1px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 0px 0px 10px -1px rgba(0, 0, 0, 0.75);
     box-shadow: 0px 0px 10px -1px rgba(0,0,0,0.75);
+    transition: all 0.5s;
 
 }
+
+.article:hover{
+    /*border-left: 8px solid rgba(254,254,254,1);
+    border-right: 8px solid rgba(254,254,254,1);*/
+}
+
+.sec-container{
+    position: relative;
+}
+
+.sec-container::before,
+.sec-container::after{
+    content: "";
+    z-index: 1;
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    /*height: 0%;*/
+    /*width: 8px;*/
+    /*background: red;*/
+    height: 100%;
+    transition: all 0.3s;
+
+}
+
+.sec-container:hover:after{
+    border-right: 8px solid white;
+    /*border-top: 8px solid white;*/
+}
+
+.sec-container:hover:before{
+    border-left: 8px solid white;
+    /*border-bottom: 8px solid red;*/
+}
+
+.sec-container:hover::before,
+.sec-container:hover::after{
+    /*height: 100%;*/
+
+}
+
 
 .article h2{
     margin-bottom: 20px;

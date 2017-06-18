@@ -53,6 +53,8 @@ function getEntries(Searchquery) {
             });
 
             for (var i = 0; i < data[0].length; i++) {
+                var div = document.createElement('div');
+                div.classList.add("sec-container")
 
                 var article = document.createElement('article');
                 var h2 = document.createElement("h2");
@@ -69,11 +71,14 @@ function getEntries(Searchquery) {
 
                 link.appendChild(h2);
                 link.appendChild(para);
+
                 article.appendChild(link);
                 article.classList.add("animated");
                 article.classList.add( (i%2) ? "slideInLeft" : "slideInRight");
+                div.appendChild(article);
 
-                contents.appendChild(article);
+
+                contents.appendChild(div);
                 // console.log(article);
             }
         }
