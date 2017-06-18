@@ -21,9 +21,13 @@ searchBox.addEventListener('blur', function(event) {
 
 form.addEventListener("submit", function(event) {
     event.preventDefault();
-    var searchItem = searchBox.value;
     contents.innerHTML = "";
-    getEntries(searchItem);
+    getEntries(searchBox.value);
+});
+
+button.addEventListener("click", function (event) {
+    contents.innerHTML = "";
+    getEntries(searchBox.value);
 });
 
 function getEntries(Searchquery) {
