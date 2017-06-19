@@ -191,20 +191,19 @@ header>a {
     padding: 20px 25px;
     /*background-color: rgba(240, 255, 240, .8);*/
     background-color: RGBA(0, 31, 63, .8);
+    min-height: 100px;
+    max-height: 200px;
+
     color: #ffffff;
-    height: 150px;
     /*border-radius: 20px;*/
     overflow: hidden;
-    margin: 20px 0 0 0;
+    line-height: 1.5em;
     -webkit-box-shadow: 0px 0px 10px -1px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 0px 0px 10px -1px rgba(0, 0, 0, 0.75);
     box-shadow: 0px 0px 10px -1px rgba(0, 0, 0, 0.75);
     transition: all 0.5s;
 }
 
-.article:first-of-type{
-    margin-top: 0;
-}
 
 .article:hover {
     /*border-left: 8px solid rgba(254,254,254,1);
@@ -213,6 +212,12 @@ header>a {
 
 .article-container {
     position: relative;
+    margin-top: 20px;
+
+}
+
+.article-container:first-of-type{
+    margin-top: 0;
 }
 
 .article-container::before, .article-container::after {
@@ -282,6 +287,8 @@ p.description {
     .container {
         width: 100vw;
     }
-
+    .article {
+        height: auto;
+    }
 
 }
