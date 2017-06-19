@@ -54,7 +54,8 @@ MAIN STYLES
 body {
     background-image: linear-gradient(260deg, #2a7aae 0%, #cffecf 90%);
     background: url(https://images.unsplash.com/photo-1466786784937-3e682c802b14?dpr=1&auto=format&fit=crop&w=1500&h=1875&q=80&cs=tinysrgb&crop=&bg=);
-    background-position: center right;
+    background-size: cover;
+    background-position: center bottom;
     font-family: 'Raleway', sans-serif;
 }
 
@@ -153,10 +154,15 @@ input[type="search"]:focus {
 }
 
 .contents {
-    overflow: scroll;
-    height: 88%;
+    overflow: auto;
+    /*overflow-y: hidden;*/
+    height: 80%;
     margin-top: 20px;
     /*border: 2px double orange;*/
+}
+
+.contents::-webkit-scroll-bar{
+    display: none;
 }
 
 a {
