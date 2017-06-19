@@ -26,7 +26,19 @@ form.addEventListener("submit", function(event) {
     if(searchBox.value == searchedItem){
         return;
     }
+    if (searchBox.value == "") {
+        fadeOut();
+        return;
+    }
+    contents.innerHTML = "";
+    getEntries(searchBox.value);
+});
 
+
+button.addEventListener("click", function(event) {
+    if(searchBox.value == searchedItem){
+        return;
+    }
     if (searchBox.value == "") {
         fadeOut();
         return;
@@ -42,21 +54,9 @@ function fadeOut() {
     setTimeout(function() {
         wrap.classList.add("remove-content");
     }, 500);
+    searchedItem = "";
+
 }
-
-button.addEventListener("click", function(event) {
-    if(searchBox.value == searchedItem){
-        return;
-    }
-
-    if (searchBox.value == "") {
-        fadeOut();
-        return;
-    }
-
-    contents.innerHTML = "";
-    getEntries(searchBox.value);
-});
 
 function getEntries(searchQuery) {
 
@@ -65,13 +65,6 @@ function getEntries(searchQuery) {
         type: "GET",
         url: "https://en.wikipedia.org/w/api.php",
         dataType: "jsonp",
-        // headers: {
-        //     'Api-User-Agent': 'c.bestmann@hotmail.com',
-        //     "Accept": "application/json; charset=utf-8",
-        //     "Content-Type": "application/javascript; charset=utf-8",
-        //     "Access-Control-Allow-Origin": "*"
-        // },
-        // jsonpCallback: "displaySearch",
         data: {
             "action": "opensearch",
             "format": "json",
@@ -100,8 +93,9 @@ function getEntries(searchQuery) {
 
                 article.classList.add("article");
                 para.classList.add("description");
-                h2.innerText = data[0][i];
 
+                h2.innerText = data[0][i];
+                // if no description from API
                 para.innerText = (!data[1][i]) ? "No description to display" : data[1][i];
                 link.href = data[2][i];
                 link.setAttribute("target", "_blank");
