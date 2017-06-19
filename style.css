@@ -72,14 +72,22 @@ body {
 
 header {
     width: 100%;
+    position: relative;
     text-align: center;
+    transition: all 0.5s;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
     transition: all 0.5s;
     /*margin: 20px;*/
 }
 
 form {
     display: inline-block;
+    transition: all 0.5s;
 }
+
 
 input[type="search"] {
     border: 4px solid rgba(0, 0, 0, .4);
@@ -159,12 +167,12 @@ a {
     height: 100%;
 }
 
-form>a {
+header>a {
     color: black;
-    font-size: 16px;
+    font-size: 20px;
     font-weight: 700;
     margin-bottom: 10px;
-    color: #111111;
+    color: coral;
     margin: 10px 0;
     /*border: 2px solid yellow;*/
 }
@@ -190,11 +198,11 @@ form>a {
     border-right: 8px solid rgba(254,254,254,1);*/
 }
 
-.sec-container {
+.article-container {
     position: relative;
 }
 
-.sec-container::before, .sec-container::after {
+.article-container::before, .article-container::after {
     content: "";
     z-index: 1;
     display: block;
@@ -205,18 +213,19 @@ form>a {
     transition: all 0.3s;
 }
 
-.sec-container::before {
+.article-container::before {
     top: 0%;
     bottom: 0%;
 }
 
-.sec-container::after {
+.article-container::after {
     right: 0;
     top: 0%;
     /*background: white;*/
 }
 
-.sec-container:hover::before, .sec-container:hover::after {
+.article-container:hover::before, .article-container:hover::after,
+.article-container:active::before, .article-container:active::after {
     height: 100%;
 }
 
@@ -230,4 +239,36 @@ form>a {
 p.description {
     display: inline-block;
     padding-bottom: 10px;
+}
+
+.remove-content{
+    display: none;
+}
+
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+    }
+
+    form {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    input[type="search"] {
+        display: block;
+    }
+
+    .search-btn {
+        right: 0%;
+        margin-top: 10px;
+    }
+    .move-inside {
+        transform: translateX(0px) scaleX(1.2);
+    }
+    .container {
+        width: 100vw;
+    }
+
+
 }
